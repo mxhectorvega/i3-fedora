@@ -1,2 +1,26 @@
 #!/usr/bin/env bash
 
+clear
+echo -e ""
+echo -e ""
+echo -e "Escribe la contraseña para reemplazar archivo .bashrc"
+sudo rm -rf ~/.bashrc
+mkdir ~/.local/bin
+mkdir ~/.local/share
+mkdir ~/.local/share/fonts
+clear
+git clone https://github.com/mxhectorvega/i3-fedora /tmp/i3-fedora
+git clone https://github.com/mxhectorvega/tipografias /tmp/tipografias
+cp -R /tpm/i3-fedora/* ~/
+cp -R /tpm/tipografias/* ~/.local/share/fonts
+clear
+echo -e ""
+echo -e ""
+echo -e "Configuraciones aplicadas"
+sleep 3
+clear
+echo -e ""
+echo -e ""
+echo -e "Contribuye payal.me/hivz"
+exit
+

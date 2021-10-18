@@ -1,0 +1,37 @@
+#[spotify]
+#label= 🎵 
+#command=~/.config/i3blocks/scr/spotify.py
+#color=#ffffff
+#interval=5
+
+[CPU]
+full_text= 🔥 00.0% @ 00.0°C
+command=~/.config/i3blocks/scr/cpu
+interval=15
+color=#8086e8
+
+[MEM]
+full_text= 🐏 0.0Mi | 0.0Mi
+command=~/.config/i3blocks/scr/memoria
+interval=15
+color=#a4bd00
+
+[SOUND]
+full_text= 🔇 0% 
+command=~/.config/i3blocks/scr/sonido
+interval=10
+signal=10
+color=#FEC925
+
+[BATTERY]
+full_text= 💔 0%
+command=~/.config/i3blocks/scr/bateria
+pango=
+interval=30
+color=#00B4EB
+
+[TIME_DATE]
+full_text= 📅 lun, 30 ene 1989 - 00:00
+command=date +" 📅 %a, %d %b - %H:%M "
+interval=60
+color=#ffffff

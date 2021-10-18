@@ -16,11 +16,23 @@ cp -R /tpm/tipografias/* ~/.local/share/fonts
 clear
 echo -e ""
 echo -e ""
+echo -e "Instalando software necesario"
+sleep 2
+sudo dnf -y install xclip maim xprop xset xsetrot kitty
+clear
+echo -e ""
+echo -e ""
 echo -e "Configuraciones aplicadas"
-sleep 3
+sleep 2
+clear
+echo -e ""
+echo -e ""
+echo -e "Consulte los atajos del teclado en el archivo ~/.config/i3/config"
+sleep 2
 clear
 echo -e ""
 echo -e ""
 echo -e "Contribuye payal.me/hivz"
+sleep 2
 exit
 

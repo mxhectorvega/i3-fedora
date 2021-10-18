@@ -5,7 +5,7 @@ Archivos de configuracion basica y un par de scripts para i3 i3blocks en Fedora 
 Puede clonar el repositorio manualmente o ejecutar un script automatizado de instalacion que hara todo por usted 
 
 **Modo manual:**
-1. ```git clone https://github.com/mxhectorvega/i3fedora```
+1. ```git clone https://github.com/mxhectorvega/i3-fedora```
 2. Copiar cada directorio y archivo segun sus necesidades.
 
 **Modo automatizado:**

@@ -2,7 +2,7 @@
 
 Archivos de configuracion basica y un par de scripts para i3 i3blocks en Fedora 35 Spin i3
 
-Puede clonar el repositorio manualmente compilando en cada directorio con ```make ; sudo make install``` o ejecutar un script automatizado de instalacion que hara todo por usted 
+Puede clonar el repositorio manualmente o ejecutar un script automatizado de instalacion que hara todo por usted 
 
 **Modo manual:**
 1. ```git clone https://github.com/mxhectorvega/i3-fedora```

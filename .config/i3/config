@@ -22,14 +22,6 @@ font pango:SF Compact Display Semibold 10
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && sleep 0.2 && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && sleep 0.2 && pkill -RTMIN+1 i3blocks
@@ -44,13 +36,13 @@ bindsym XF86MonBrightnessDown exec light -U 5 # disminiur brillo
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -l 5
+bindsym $mod+d exec --no-startup-id dmenu_run -l 5 -fn "SF\\Compact\\Display-10" -p Dmenu:
 bindsym $mod+shift+d exec --no-startup-id programas
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -213,7 +205,7 @@ bar {
 #for_window [class="^.*"] geometry {"x": 1600, "y": 1, "width": 600, "height": 150} # Tamaño de ventanas por defecto
 for_window [class="^.*"] border pixel 0 # Eliminar linea verde molesta a la orlla de la pantalla
 for_window [class="^kitty$"] move to workspace $ws1
-for_window [class="^urxvt$"] move to workspace $ws1
+for_window [class="^URxvt$"] move to workspace $ws1
 for_window [class="^Firefox$"] move to workspace $ws4
 for_window [class="^Navigator$"] move to workspace $ws4
 for_window [class="TelegramDesktop"] move to workspace $ws5
@@ -234,7 +226,7 @@ for_window [class="Xfce4-settings-manager"] move to workspace $ws10
 for_window [class="Blueberry.py"] move to workspace $ws10
 
 # Gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
-bindsym $mod+p exec greenclip print | sed '/^$/d' | dmenu -i -l 10 -p clipboard | xargs -r -d'\n' -I '{}' greenclip print '{}' 
+bindsym $mod+p exec --no-startup-id greenclip print | sed '/^$/d' | dmenu -i -l 10 -fn "SF\\Compact\\Display-10" -p Clipboard: | xargs -r -d'\n' -I '{}' greenclip print '{}' 
 
 # Atajos para acaptura de pantalla, es necesario tener instalado los paquetes xclip y maim
 bindsym Shift+Print exec maim -s | xclip -selection clipboard -t image/png # Captura de pantalla en area seleccionada
@@ -242,11 +234,13 @@ bindsym Crtl+Print exec maim -i $(xdotool getactivewindow) | xclip -selection cl
 bindsym Print exec maim | xclip -selection clipboard -t image/png # Captura de pantalla completa
 
 # Cosas que inicia con el SO
-exec greenclip daemon & # Demonio del gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
-exec feh --bg-fill ~/Imágenes/walls2/hp2ezbnwmhr71.png 
-#exec feh --no-fehbg --bg-fill /home/vega/Imágenes/walls2/xcz4kyo191p71.jpg # Coloca una imagen de fondo de escritorio
-exec xrdb ~/.Xresources & # Cargar la configuracion de Urxvt Terminal
-exec xset r rate 300 50 & Acelerar el cursos para escribir o desplazarte, es necesario tener instalado el paquete xset
-# exec_always --no-startup-id xsetroot -solid '#707070' & Colocar un color solido de fondo de escritorio, es necesario tener instalado el paquete xsetrot
-exec xsetroot -cursor_name left_ptr & # Desactivar el cursor cargando al iniciar i3 es necesario tener instalado el paquete xsetrot
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+exec --no-startup-id greenclip daemon & # Demonio del gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
+exec --no-startup-id feh --bg-fill ~/Imágenes/walls2/hp2ezbnwmhr71.png 
+#exec --no-startup-id feh --no-fehbg --bg-fill /home/vega/Imágenes/walls2/xcz4kyo191p71.jpg # Coloca una imagen de fondo de escritorio
+exec --no-startup-id xrdb ~/.Xresources & # Cargar la configuracion de Urxvt Terminal
+exec --no-startup-id xset r rate 300 50 & Acelerar el cursos para escribir o desplazarte, es necesario tener instalado el paquete xset
+#exec --no-startup-id xsetroot -solid '#707070' & Colocar un color solido de fondo de escritorio, es necesario tener instalado el paquete xsetrot
+#exec --no-startup-id xsetroot -cursor_name left_ptr & # Desactivar el cursor cargando al iniciar i3 es necesario tener instalado el paquete xsetrot
 

@@ -1,38 +1,42 @@
 #!/usr/bin/env bash
 
 clear
-echo -e ""
-echo -e ""
-echo -e "Escribe la contraseña para reemplazar archivo .bashrc"
-sudo rm -rf ~/.bashrc
-mkdir ~/.local/bin
-mkdir ~/.local/share
-mkdir ~/.local/share/fonts
+printf ''
+printf ''
+printf 'Escribe la contraseña para reemplazar archivo .bashrc'
+mkdir '$HOME'/.local/bin
+mkdir '$HOME'/.local/share
+mkdir '$HOME'/.local/share/fonts
+sudo rm -rf '$HOME'/.bashrc
+
 clear
-git clone https://github.com/mxhectorvega/i3-fedora /tmp/i3-fedora
-git clone https://github.com/mxhectorvega/tipografias /tmp/tipografias
-cp -R /tpm/i3-fedora/* ~/
-cp -R /tpm/tipografias/* ~/.local/share/fonts
+git -C /tmp/i3-fedora https://github.com/mxhectorvega/i3-fedora 
+git -C /tmp/tipografias https://github.com/mxhectorvega/tipografias 
+cp -R /tmp/i3-fedora/* '$HOME'
+cp -R /tmp/tipografias/* '$HOME'/.local/share/fonts
+
 clear
-echo -e ""
-echo -e ""
-echo -e "Instalando software necesario"
+printf ''
+printf ''
+printf 'Instalando software necesario'
 sleep 2
 sudo dnf -y install xclip maim xprop xset xsetrot kitty
-clear
-echo -e ""
-echo -e ""
-echo -e "Configuraciones aplicadas"
-sleep 2
-clear
-echo -e ""
-echo -e ""
-echo -e "Consulte los atajos del teclado en el archivo ~/.config/i3/config"
-sleep 2
-clear
-echo -e ""
-echo -e ""
-echo -e "Contribuye payal.me/hivz"
-sleep 2
-exit
 
+clear
+printf ''
+printf ''
+printf 'Configuraciones aplicadas'
+sleep 2
+
+clear
+printf ''
+printf ''
+printf 'Consulte los atajos del teclado en el archivo ~/.config/i3/config'
+sleep 2
+
+clear
+printf ''
+printf ''
+printf 'Contribuye payal.me/hivz'
+sleep 2
+pkill -9 $TERMINAL

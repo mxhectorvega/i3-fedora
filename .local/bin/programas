@@ -11,6 +11,6 @@ do
         fi
         HASHMAP["$APP_NAME"]=$FILE
 done
-SELECTION=$(printf "%s\n" "${!HASHMAP[@]}" | dmenu -l 5)
+SELECTION=$(printf "%s\n" "${!HASHMAP[@]}" | dmenu -l 5 -fn "SF\\Compact\\Display-10" -p "Menu-Desk:")
 gtk-launch "$(echo ${HASHMAP[$SELECTION]} | sed 's/\/usr\/share\/applications\///g')"
 exit

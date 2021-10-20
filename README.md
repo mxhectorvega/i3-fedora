@@ -2,7 +2,7 @@
 
 Archivos de configuracion basica y un par de scripts para i3 i3blocks en Fedora 35 Spin i3
 
-# Esta config debe ser aplicada de preferencia en una instalacion limpia.
+**Esta config debe ser aplicada de preferencia en una instalacion limpia.**
 
 Puede clonar el repositorio manualmente o ejecutar un script automatizado de instalacion que hara todo por usted 
 

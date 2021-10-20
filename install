@@ -36,3 +36,5 @@ sleep 1
 printf '\n \n \nCierre sesion con super+shift+e para aplicar los cambios'
 sleep 1
 printf '\n \n \nContribuye paypal.me/hivz'
+sleep 1
+printf '\n'

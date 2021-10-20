@@ -28,18 +28,11 @@ sleep 2
 
 clear
 printf '\n \n \nConfiguraciones aplicadas!'
-sleep 2
-
-clear
+sleep 1
 printf '\n \n \nConsulte los atajos del teclado en el archivo ~/.config/i3/config'
-sleep 2
-
-clear
+sleep 1
 printf '\n \n \nEn caso de querer desactivar modulos de i3blocks solo comente el #[Modulo] que corresponda.'
-sleep 2
-
-clear
+sleep 1
+printf '\n \n \nCierre sesion con super+shift+e para aplicar los cambios'
+sleep 1
 printf '\n \n \nContribuye paypal.me/hivz'
-sleep 2
-
-pkill -9 $TERMINAL

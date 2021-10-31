@@ -5,18 +5,30 @@ BATTERY_STATE=$(echo "${BATTERY_INFO}" | upower -i $(upower -e | grep 'BAT') | g
 BATTERY_POWER=$(echo "${BATTERY_INFO}" | upower -i $(upower -e | grep 'BAT') | grep -E "percentage" | awk '{print $2}' | tr -d '%')
 URGENT_VALUE=10
 
-if   [ "${BATTERY_POWER}" -gt 95 ]; then
+if   [ "${BATTERY_POWER}" -gt 94 ]; then
     BATTERY_ICON="❤️❤️❤️❤️❤️"
-elif [ "${BATTERY_POWER}" -gt 75 ]; then
+elif [ "${BATTERY_POWER}" -gt 89 ]; then
+     BATTERY_ICON="💔❤️❤️❤️❤️"
+elif [ "${BATTERY_POWER}" -gt 79 ]; then
+     BATTERY_ICON="💔❤️❤️❤️❤️"
+elif [ "${BATTERY_POWER}" -gt 69 ]; then
      BATTERY_ICON="❤️❤️❤️❤️"
-elif [ "${BATTERY_POWER}" -gt 50 ]; then
+elif [ "${BATTERY_POWER}" -gt 59 ]; then
+     BATTERY_ICON="💔❤️❤️❤️"
+elif [ "${BATTERY_POWER}" -gt 49 ]; then
      BATTERY_ICON="❤️❤️❤️"
-elif [ "${BATTERY_POWER}" -gt 25 ]; then
+elif [ "${BATTERY_POWER}" -gt 39 ]; then
+     BATTERY_ICON="💔❤️❤️"
+elif [ "${BATTERY_POWER}" -gt 29 ]; then
      BATTERY_ICON="❤️❤️"
-elif [ "${BATTERY_POWER}" -le 10 ]; then
+elif [ "${BATTERY_POWER}" -gt 19 ]; then
+     BATTERY_ICON="💔❤️"
+elif [ "${BATTERY_POWER}" -gt 9 ]; then
+     BATTERY_ICON="❤️"
+elif [ "${BATTERY_POWER}" -gt 4 ]; then
      BATTERY_ICON="💔"
 else
-    BATTERY_ICON="❤️"
+    BATTERY_ICON="💔"
 fi
 
 if [ "${BATTERY_STATE}" = "discharging" ]; then
@@ -24,8 +36,8 @@ if [ "${BATTERY_STATE}" = "discharging" ]; then
     echo "${BATTERY_ICON} ${BATTERY_POWER}%"
     {$F$color} echo ""
 else
-    echo "⚡${BATTERY_POWER}%"
-    echo "⚡${BATTERY_POWER}%"
+    echo "🔌${BATTERY_ICON} ${BATTERY_POWER}%"
+    echo "🔌${BATTERY_ICON} ${BATTERY_POWER}%"
     {$F$color} echo ""
 fi
 

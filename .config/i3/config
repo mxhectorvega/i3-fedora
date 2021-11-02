@@ -86,16 +86,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Nombre de los espacios de trabajo
-set $ws1 "1:💻 Term"
-set $ws2 "2:📝 Code"
-set $ws3 "3:📁 File"
-set $ws4 "4:🌎 Www"
-set $ws5 "5:👥 Msgs"
-set $ws6 "6:🎹 Media"
-set $ws7 "7:📄 Docs"
-set $ws8 "8:✏️ Draw"
-set $ws9 "9:🖥️ VMs"
-set $ws10 "10:🍺 Conf"
+set $ws1 "1:💻"
+set $ws2 "2:📝"
+set $ws3 "3:📁"
+set $ws4 "4:🌎"
+set $ws5 "5:👥"
+set $ws6 "6:🎹"
+set $ws7 "7:📄"
+set $ws8 "8:✏️"
+set $ws9 "9:🖥️"
+set $ws10 "10:🍺"
 
 # Moverse a otro espacio de trabajo
 bindsym $mod+1 workspace number $ws1
@@ -158,7 +158,7 @@ mode "resize" {
 client.focused		#141414			#141414			#ffffff		#00ff00
 client.unfocused	#141414			#141414			#8f8f8f		#00ff00
 client.focused_inactive	#141414			#141414			#8f8f8f		#00ff00
-client.urgent		#141414			#141414			#f00000		#00ff00
+client.urgent		#141414			#141414			#ff6f00		#00ff00
 
 # Configuracion de la barra para i3wm, puede ser i3block, i3status o i3bar
 # a continuacion podra ajustar la pocicion asi como colores, fuentes de la barra
@@ -177,7 +177,7 @@ bar {
 		#			border		background	text
 		focused_workspace	#141414		#141414		#ffffff
 		inactive_workspace	#141414		#141414		#7f7f7f
-		urgent_workspace	#141414		#141414		#f00000
+		urgent_workspace	#141414		#141414		#ff6f00
 	}
 }
 
@@ -204,10 +204,12 @@ assign [class="^pm$"] workspace $ws7
 assign [class="^libreoffice-writer$"] workspace $ws7
 assign [class="^libreoffice-calc$"] workspace $ws7
 assign [class="^libreoffice$"] orkspace $ws7
+assign [class="^MuPDF$"] workspace $ws7
 assign [class="^mpv$"] workspace $ws6
 assign [class="^vlc$"] workspace $ws6
 assign [class="Spotify"] workspace $ws6
 assign [class="spotify"] workspace $ws6
+assign [class="Sxiv"] workspace $ws6
 assign [class="^obs$"] workspace $ws6
 assign [class="^Virt-manager$"] workspace $ws9
 assign [class="Pavucontrol"] workspace $ws10
@@ -224,11 +226,12 @@ bindsym Ctrl+Print exec maim | xclip -selection clipboard -t image/png # Captura
 bindsym Print exec maim -m 1 "$HOME"/Imágenes/fullscreen-"$(date '+%d%m%y-%H%M%-S').png" # Captura de pantalla completa
 
 # Cosas que inicia con el SO
+#exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
 exec --no-startup-id greenclip daemon & # Demonio del gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
-#exec --no-startup-id feh --no-fehbg --bg-fill /home/vega/Imágenes/walls2/xcz4kyo191p71.jpg # Coloca una imagen de fondo de escritorio
+exec --no-startup-id feh --no-fehbg --bg-fill "$HOME"/Imágenes/wallpapers/6zzhdsef5fs71.jpg # Coloca una imagen de fondo de escritorio
 exec --no-startup-id xrdb ~/.Xresources & # Cargar la configuracion de Urxvt Terminal
 exec --no-startup-id xset r rate 300 50 & Acelerar el cursos para escribir o desplazarte, es necesario tener instalado el paquete xset
 #exec --no-startup-id xsetroot -solid '#707070' & Colocar un color solido de fondo de escritorio, es necesario tener instalado el paquete xsetrot
-
+exec --no-startup-id picom &
+#exec --no-startup-id picom --experimental-backends &

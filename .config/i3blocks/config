@@ -1,43 +1,34 @@
-#[spotify]
-#label= 🎵 
-#full_text=No file
-#command=~/.config/i3blocks/scr/spotify.py
-#color=#ffffff
-#interval=5
+[WIFI]
+command=~/.config/i3blocks/scr/wifi; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e nmtui &
+interval=15
+color=#7d84ff
 
-#[spotify-previous]
-#full_text=⏪
-#command=playerctl --player=spotify previous
-
-[spotify-play-pause]
-#full_text=▶️
-#command=playerctl --player=spotify play-pause
-
-[spotify-next]
-#full_text=⏩
-#command=playerctl --player=spotify next
+[ETHERNET]
+command=~/.config/i3blocks/scr/ethernet; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e nmtui &
+interval=15
+color=#96eb17
 
 [CPU]
-command=~/.config/i3blocks/scr/cpu
+command=~/.config/i3blocks/scr/cpu; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e bpytop &
 interval=15
-color=#8086e8
+color=#ff3b3b
 
 [MEM]
-command=~/.config/i3blocks/scr/memoria
+command=~/.config/i3blocks/scr/memoria; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e bpytop &
 interval=15
-color=#a4bd00
-
-[SOUND]
-command=~/.config/i3blocks/scr/sonido
-interval=15
-signal=1
-color=#FEC925
+color=#ffffff
 
 [BATTERY]
 command=~/.config/i3blocks/scr/bateria
 pango=
 interval=30
-color=#00B4EB
+color=#FEC925
+
+[SOUND]
+command=~/.config/i3blocks/scr/sonido; [[ -z "${BLOCK_BUTTON}" ]] || pavucontrol &
+interval=15
+signal=1
+color=#4baefa
 
 [TIME_DATE]
 command=date +" 📅 %a, %d %b - %H:%M "

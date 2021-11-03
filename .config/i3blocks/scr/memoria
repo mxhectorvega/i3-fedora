@@ -11,7 +11,7 @@
 #swap=$(free -h | awk '/Swap:/ { printf(" | Swap:"$3)}')
 
 #Contadores solo de consumo (sin nombres)
-ram=$(free -h | awk '/Mem:/ { printf(" 🐏 "$3)}')
+ram=$(free -h | awk '/Mem:/ { printf("🐏 "$3)}')
 swap=$(free -h | awk '/Swap:/ { printf(" @ "$3)}')
 
 echo -e "$ram$swap"

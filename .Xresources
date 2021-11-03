@@ -1,5 +1,89 @@
-!! Colorscheme
+Xft.dpi: 100
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
 
+XTerm*renderFont: true
+XTerm*faceName: xft:Iosevka:size=12,, \
+                xft:NotoColorEmoji:size=12, \
+                xft:Iosevka:style=Medium:size=12   
+XTerm*faceSize: 12
+XTerm*utf8: 2
+XTerm*locale: true
+
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> -: smaller-vt-font() \n\
+    Shift Ctrl <Key> +: larger-vt-font() \n\
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+XTerm*loginshell: true
+
+! I like a LOT of scrollback...
+XTerm*savelines: 16384
+
+! double-click to select whole URLs :D
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+URxvt*imLocale: es_MX.UTF-8
+URxvt*termName: rxvt-unicode-256color
+URxvt*buffered: false
+URxvt.intensityStyles: false
+URxvt.font: xft:Iosevka:size=12, \
+            xft:NotoColorEmoji:size=12, \
+            xft:Iosevka:style=Medium:size=12   
+URxvt.saveLines: 2000
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+
+!! Extensions
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select,clipboard
+URxvt.colorUL: #4682B4
+
+!! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.url-select.underline: true
+
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+!! resize-font
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+
+!! Matcher
+URxvt.url-launcher:	urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.matcher.button: 1
+
+!!clipboard
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt*depth: 32
+
+! COLORS FOR SXIV
+Sxiv.foreground:   #ffffff
+Sxiv.background:   #141414
+Sxiv.font:Iosevka:style=regular:size=9
+
+*.letterSpace: 0
+*.lineSpace: 0
+*.geometry: 92x24
+*.internalBorder: 24
+*.cursorBlink: true
+*.cursorUnderline: false
+*.saveline: 2048
+*.scrollBar: false
+*.scrollBar_right: false
+*.urgentOnBell: true
+*.depth: 24
+*.iso14755: false
+
+!! Tema - colores
 ! special
 *.foreground: #ffffff
 *.background: #141414
@@ -36,30 +120,3 @@
 ! white
 *.color7: #bfbaac
 *.color15: #fdf6e3
-
-!! URxvt Appearance
-URxvt.font: xft:Iosevka:style=Regular:size=10
-URxvt.boldFont: xft:Iosevka:style=Bold:size=10
-URxvt.italicFont: xft:Iosevka:style=Italic:size=10
-URxvt.boldItalicFont: xft:Iosevka:style=Bold Italic:size=10
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.geometry: 92x24
-URxvt.internalBorder: 24
-URxvt.cursorBlink: true
-URxvt.cursorUnderline: false
-URxvt.saveline: 2048
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.urgentOnBell: true
-URxvt.depth: 24
-URxvt.iso14755: false
-
-! Restore Ctrl+Shift+(c|v)
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,resize-font
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-
-URxvt.urlLauncher: firefox
-URxvt.underlineURLs: true
-URxvt.urlButton: 1

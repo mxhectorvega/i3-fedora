@@ -127,11 +127,8 @@ bindsym $mod+Shift+c reload
 # Recargar todo i3
 bindsym $mod+Shift+r restart
 
-# Cerrar secion con barra emergente
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m '¿Que desea hacer?' -B '  Cerrar sesión  ' 'i3-msg exit' --font 'pango:SF Compact Display Semibold 10'"
-
-# Apagar o reiniciar con barra emergente
-bindsym $mod+BackSpace exec --no-startup-id "i3-nagbar -t warning -m '¿Que desea hacer?' -B '   Reiniciar   ' 'reboot' -b '   Aapagar   ' 'poweroff' --font 'pango:SF Compact Display Semibold 10'"
+# Cerrar secion, reiniciar o apagar con barra emergente
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m '¿Que desea hacer?' -B '   Reiniciar   ' 'reboot' -b '   Aapagar   ' 'poweroff' -B '  Cerrar sesión  ' 'i3-msg exit' --font 'pango:SF Compact Display Semibold 10'"
 
 # Carmbiar de tamaño las ventanas (también puedes usar el mouse para eso)
 mode "resize" {
@@ -185,36 +182,42 @@ bar {
 #for_window [class="^.*"] floating enable # Ventanas flotantes por defecto
 #for_window [class="^.*"] geometry {"x": 1600, "y": 1, "width": 600, "height": 150} # Tamaño de ventanas por defecto
 for_window [class="^.*"] border pixel 0 # Eliminar linea verde molesta en la orilla derecha de la pantalla
-assign [class="^kitty$"] workspace $ws1
-assign [class="^URxvt$"] workspace $ws1
-assign [class="^Firefox$"] workspace $ws4
-assign [class="^firefox$"] workspace $ws4
-assign [class="^Navigator$"] workspace $ws4
-assign [class="TelegramDesktop"] workspace $ws5
-assign [class="^Mousepad$"] workspace $ws2
-assign [class="^geany$"] workspace $ws2
-assign [class="^SublimeText3$"] workspace $ws2
-assign [class="^Code$"] workspace $ws2
-assign [class="^Thunar$"] workspace $ws3
-assign [class="^Gimp$"] workspace $ws8
-assign [class="^Kdenlive$"] workspace $ws8
-assign [class="^DesktopEditors$"] workspace $ws7
-assign [class="^tm$"] workspace $ws7
-assign [class="^pm$"] workspace $ws7
-assign [class="^libreoffice-writer$"] workspace $ws7
-assign [class="^libreoffice-calc$"] workspace $ws7
-assign [class="^libreoffice$"] orkspace $ws7
-assign [class="^MuPDF$"] workspace $ws7
-assign [class="^mpv$"] workspace $ws6
-assign [class="^vlc$"] workspace $ws6
-assign [class="Spotify"] workspace $ws6
-assign [class="spotify"] workspace $ws6
-assign [class="Sxiv"] workspace $ws6
-assign [class="^obs$"] workspace $ws6
-assign [class="^Virt-manager$"] workspace $ws9
-assign [class="Pavucontrol"] workspace $ws10
-assign [class="Xfce4-settings-manager"] workspace $ws10
-assign [class="Blueberry.py"] workspace $ws10
+for_window [class="^kitty$"] move to workspace $ws1
+for_window [class="^URxvt$"] move to workspace $ws1
+for_window [class="^XTerm$"] move to workspace $ws1
+for_window [class="^st-256color$"] move to workspace $ws1
+for_window [class="^Firefox$"] move to workspace $ws4
+for_window [class="^firefox$"] move to workspace $ws4
+for_window [class="^Surf$"] move to workspace $ws4
+for_window [class="^Navigator$"] move to workspace $ws4
+for_window [class="TelegramDesktop"] move to workspace $ws5
+for_window [class="^Mousepad$"] move to workspace $ws2
+for_window [class="^geany$"] move to workspace $ws2
+for_window [class="^SublimeText3$"] move to workspace $ws2
+for_window [class="^Code$"] move to workspace $ws2
+for_window [class="^Thunar$"] move to workspace $ws3
+for_window [class="^Gimp$"] move to workspace $ws8
+for_window [class="^Kdenlive$"] move to workspace $ws8
+for_window [class="^DesktopEditors$"] move to workspace $ws7
+for_window [class="^tm$"] move to workspace $ws7
+for_window [class="^pm$"] move to workspace $ws7
+for_window [class="^libreoffice-writer$"] move to workspace $ws7
+for_window [class="libreoffice-writer"] move to workspace $ws7
+for_window [class="^libreoffice-calc$"] move to workspace $ws7
+for_window [class="^libreoffice$"] move to workspace $ws7
+for_window [class="^MuPDF$"] move to workspace $ws7
+for_window [class="^mpv$"] move to workspace $ws6
+for_window [class="^vlc$"] move to workspace $ws6
+for_window [class="^Kodi$"] move to workspace $ws6
+for_window [class="^Spotify$"] move to workspace $ws6
+for_window [class="^spotify$"] move to workspace $ws6
+for_window [class="Sxiv"] move to workspace $ws6
+for_window [class="^obs$"] move to workspace $ws6
+for_window [class="^Virt-manager$"] move to workspace $ws9
+for_window [class="Pavucontrol"] move to workspace $ws10
+for_window [class="Xfce4-settings-manager"] move to workspace $ws10
+for_window [class="Blueberry.py"] move to workspace $ws10
+for_window [class="Transmission-gtk"] move to workspace $ws10
 
 # Gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
 bindsym $mod+p exec --no-startup-id greenclip print | sed '/^$/d' | dmenu -i -l 10 -fn "SF\\Compact\\Display-10" -p Clipboard: | xargs -r -d'\n' -I '{}' greenclip print '{}' 
@@ -233,5 +236,4 @@ exec --no-startup-id feh --no-fehbg --bg-fill "$HOME"/Imágenes/wallpapers/6zzhd
 exec --no-startup-id xrdb ~/.Xresources & # Cargar la configuracion de Urxvt Terminal
 exec --no-startup-id xset r rate 300 50 & Acelerar el cursos para escribir o desplazarte, es necesario tener instalado el paquete xset
 #exec --no-startup-id xsetroot -solid '#707070' & Colocar un color solido de fondo de escritorio, es necesario tener instalado el paquete xsetrot
-exec --no-startup-id picom &
-#exec --no-startup-id picom --experimental-backends &
+#exec --no-startup-id picom &

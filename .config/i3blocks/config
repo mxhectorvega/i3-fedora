@@ -10,7 +10,7 @@ color=#96eb17
 
 [CPU]
 command=~/.config/i3blocks/scr/cpu; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e bpytop &
-interval=15
+interval=10
 color=#ff3b3b
 
 [MEM]
@@ -31,6 +31,6 @@ signal=1
 color=#4baefa
 
 [TIME_DATE]
-command=date +" 📅 %a, %d %b - %H:%M "
+command=date +"📅 %a, %d %b - %H:%M "
 interval=60
 color=#ffffff

@@ -11,7 +11,7 @@ clear
 printf '\n \nInstalando software necesario...\n'
 sleep 2
 printf 'fastestmirror=true \ndeltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
-sudo dnf install -y git mpv NetworkManager-tui picom i3blocks xrdb xclip xprop xset xsetroot maim zathura mupdf sxiv alacritty xdg-user-dirs light file-roller bpytop lxappearance tumbler ffmpegthumbnailer ranger
+sudo dnf install -y git surf mpv NetworkManager-tui picom i3blocks xrdb xclip xprop xset xsetroot maim zathura mupdf sxiv alacritty xdg-user-dirs light file-roller bpytop lxappearance tumbler ffmpegthumbnailer ranger
 sudo dnf install -y fedora-workstation-repositories https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm 
 
 clear

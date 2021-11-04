@@ -1,36 +1,42 @@
+# i3blocks config file
+# Autor:
+# Hector Ivan Vega Zamudio
+# mxhectorvega@gmail.com
+# https://github.com/mxhectorvega
+# Version:
+# v1.0: 19/09/2021 - i3blocks configs y un par de scripts para facilitar la lectura de cosas del sistema
+
+align=center
+separator=false
+color=#ffffff
+separator_block_width=10
+markup=pango
+
 [WIFI]
-command=~/.config/i3blocks/scr/wifi; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e nmtui &
+command=~/.config/i3blocks/scr/wifi; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e nmtui &
 interval=15
-color=#7d84ff
 
 [ETHERNET]
-command=~/.config/i3blocks/scr/ethernet; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e nmtui &
+command=~/.config/i3blocks/scr/ethernet; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e nmtui &
 interval=15
-color=#96eb17
 
 [CPU]
-command=~/.config/i3blocks/scr/cpu; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e bpytop &
+command=~/.config/i3blocks/scr/cpu; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e bpytop &
 interval=10
-color=#ff3b3b
 
 [MEM]
-command=~/.config/i3blocks/scr/memoria; [[ -z "${BLOCK_BUTTON}" ]] || urxvt -e bpytop &
+command=~/.config/i3blocks/scr/memoria; [[ -z "${BLOCK_BUTTON}" ]] || $TERMINAL -e bpytop &
 interval=15
-color=#ffffff
 
 [BATTERY]
 command=~/.config/i3blocks/scr/bateria
-pango=
 interval=30
-color=#FEC925
 
 [SOUND]
 command=~/.config/i3blocks/scr/sonido; [[ -z "${BLOCK_BUTTON}" ]] || pavucontrol &
 interval=15
 signal=1
-color=#4baefa
 
 [TIME_DATE]
-command=date +"📅 %a, %d %b - %H:%M "
+command=date +"📅 %a, %d %b - %H:%M"
 interval=60
-color=#ffffff

@@ -7,10 +7,10 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfilter
 
 XTerm*renderFont: true
-XTerm*faceName: xft:Iosevka:size=12,, \
-                xft:NotoColorEmoji:size=12, \
-                xft:Iosevka:style=Medium:size=12   
-XTerm*faceSize: 12
+XTerm*faceName: xft:Iosevka:size=9,, \
+                xft:NotoColorEmoji:size=9, \
+                xft:Iosevka:style=Medium:size=9
+XTerm*faceSize: 9
 XTerm*utf8: 2
 XTerm*locale: true
 
@@ -33,9 +33,9 @@ URxvt*imLocale: es_MX.UTF-8
 URxvt*termName: rxvt-unicode-256color
 URxvt*buffered: false
 URxvt.intensityStyles: false
-URxvt.font: xft:Iosevka:size=12, \
-            xft:NotoColorEmoji:size=12, \
-            xft:Iosevka:style=Medium:size=12   
+URxvt.font: xft:Iosevka:size=9, \
+            xft:NotoColorEmoji:size=9, \
+            xft:Iosevka:style=Medium:size=9
 URxvt.saveLines: 2000
 URxvt.scrollBar: false
 URxvt.cursorColor: white

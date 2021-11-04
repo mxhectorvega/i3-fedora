@@ -4,13 +4,13 @@
 # mxhectorvega@gmail.com
 # https://github.com/mxhectorvega
 # Version:
-# v1.0: 19/09/2021 - Comienzo a usar i3 como gestor de ventanas principal en Fedora35
+# v1.0: 19/09/2021 - Config de gestor de ventanas i3
 
 # Define tu tecla super por defecto (tecla windows)
 set $mod Mod4
 
 # Fuente para las ventanas y bar por defecto
-font pango:SF Compact Display Semibold 10
+font pango:Iosevka 9
 
 # Control de volumen por defecto pulseaudio PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +9% && sleep 0.2 && pkill -RTMIN+1 i3blocks
@@ -32,7 +32,7 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # Lanza menu por defecto Dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -l 5 -fn "SF\\Compact\\Display-10" -p Dmenu:
+bindsym $mod+d exec --no-startup-id dmenu_run -l 5 -fn "Iosevka-9" -p Dmenu:
 bindsym $mod+shift+d exec --no-startup-id programas
 
 # change focus
@@ -128,7 +128,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Cerrar secion, reiniciar o apagar con barra emergente
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m '¿Que desea hacer?' -B '   Reiniciar   ' 'reboot' -b '   Aapagar   ' 'poweroff' -B '  Cerrar sesión  ' 'i3-msg exit' --font 'pango:SF Compact Display Semibold 10'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m '¿Que desea hacer?' -B '   Reiniciar   ' 'reboot' -b '   Aapagar   ' 'poweroff' -B '  Cerrar sesión  ' 'i3-msg exit' --font 'pango:Iosevka 9'"
 
 # Carmbiar de tamaño las ventanas (también puedes usar el mouse para eso)
 mode "resize" {
@@ -156,25 +156,27 @@ client.focused		#141414			#141414			#ffffff		#00ff00
 client.unfocused	#141414			#141414			#8f8f8f		#00ff00
 client.focused_inactive	#141414			#141414			#8f8f8f		#00ff00
 client.urgent		#141414			#141414			#ff6f00		#00ff00
+client.placeholder	#141414			#141414			#ff6f00		#00ff00
+client.background	#141414
 
 # Configuracion de la barra para i3wm, puede ser i3block, i3status o i3bar
 # a continuacion podra ajustar la pocicion asi como colores, fuentes de la barra
 bar {
 	# Bar program
 	status_command i3blocks
-	#status_command i3status
 	# Position of the bar
-	tray_padding 3
 	position top
-	font pango:SF Compact Display Semibold 10
+	tray_padding 3
 	# Bar colors
 	colors {
+		statusline #ff6f00
 		background #141414
 		separator #141414
 		#			border		background	text
 		focused_workspace	#141414		#141414		#ffffff
 		inactive_workspace	#141414		#141414		#7f7f7f
 		urgent_workspace	#141414		#141414		#ff6f00
+		binding_mode		#141414		#141414		#ff6f00
 	}
 }
 
@@ -220,7 +222,7 @@ for_window [class="Blueberry.py"] move to workspace $ws10
 for_window [class="Transmission-gtk"] move to workspace $ws10
 
 # Gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
-bindsym $mod+p exec --no-startup-id greenclip print | sed '/^$/d' | dmenu -i -l 10 -fn "SF\\Compact\\Display-10" -p Clipboard: | xargs -r -d'\n' -I '{}' greenclip print '{}' 
+bindsym $mod+p exec --no-startup-id greenclip print | sed '/^$/d' | dmenu -i -l 10 -fn "Iosevka-9" -p Clipboard: | xargs -r -d'\n' -I '{}' greenclip print '{}' 
 
 # Atajos para acaptura de pantalla, es necesario tener instalado los paquetes xclip y maim
 bindsym Ctrl+Shift+Print exec maim -s | xclip -selection clipboard -t image/png # Captura de pantalla en area seleccionada o ventana activa

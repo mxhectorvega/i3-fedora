@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+estado=$(upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full" | awk '{print $2}')
+carga=$(upower -i $(upower -e | grep 'BAT') | grep -E "percentage" | awk '{print $2}')
+
+if [ "$estado" = "discharging" ]; then
+    icono="❤️"
+else
+    icono="🔌❤️"
+fi
+
+echo $icono $carga

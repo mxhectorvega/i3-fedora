@@ -16,13 +16,11 @@ if [ "$state" == "up" ]; then
 	ipaddr="$(ip addr show $interface | perl -n -e'/inet (.+)\// && print $1')"
 	ipaddr="${ipaddr:-0.0.0.0}"
 else
-	ipaddr="Desc"
+	ipaddr="Down"
 	status=33
 fi
 
 full="$ipaddr"
-short=$full
 
 echo 🥨 $full
-echo 🥨 $short
 exit 🥨 $status

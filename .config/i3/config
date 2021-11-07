@@ -13,10 +13,10 @@ set $mod Mod4
 font pango:Iosevka 9
 
 # Control de volumen por defecto pulseaudio PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +9% && sleep 0.2 && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -9% && sleep 0.2 && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && sleep 0.2 && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && sleep 0.2 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Controles para el brillo en pipewire
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # incrementar brillo
@@ -161,23 +161,21 @@ client.background	#141414
 
 # Configuracion de la barra para i3wm, puede ser i3block, i3status o i3bar
 # a continuacion podra ajustar la pocicion asi como colores, fuentes de la barra
+### Status Bar:
 bar {
-	# Bar program
-	status_command i3blocks
-	# Position of the bar
-	position top
-	tray_padding 3
-	# Bar colors
-	colors {
-		statusline #ff6f00
-		background #141414
-		separator #141414
-		#			border		background	text
+     status_command i3status | while "$HOME"/.config/i3/i3bar; do sleep 1; done
+     position top
+     tray_padding 3
+     colors {
+     		#			border		background	text
+		statusline 				#ffffff
+		background 				#141414
+		separator 				#141414
 		focused_workspace	#141414		#141414		#ffffff
 		inactive_workspace	#141414		#141414		#7f7f7f
 		urgent_workspace	#141414		#141414		#ff6f00
 		binding_mode		#141414		#141414		#ff6f00
-	}
+     }
 }
 
 # Reglas para ventanas
@@ -213,7 +211,7 @@ for_window [class="^vlc$"] move to workspace $ws6
 for_window [class="^Kodi$"] move to workspace $ws6
 for_window [class="^Spotify$"] move to workspace $ws6
 for_window [class="^spotify$"] move to workspace $ws6
-for_window [class="Sxiv"] move to workspace $ws6
+#for_window [class="Sxiv"] move to workspace $ws6
 for_window [class="^obs$"] move to workspace $ws6
 for_window [class="^Virt-manager$"] move to workspace $ws9
 for_window [class="Pavucontrol"] move to workspace $ws10
@@ -234,8 +232,8 @@ bindsym Print exec maim -m 1 "$HOME"/Imágenes/fullscreen-"$(date '+%d%m%y-%H%M%
 #exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id greenclip daemon & # Demonio del gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
-exec --no-startup-id feh --no-fehbg --bg-fill "$HOME"/Imágenes/wallpapers/6zzhdsef5fs71.jpg # Coloca una imagen de fondo de escritorio
+exec --no-startup-id feh --no-fehbg --bg-fill "$HOME"/Imágenes/walls/gato.jpg # Coloca una imagen de fondo de escritorio
 exec --no-startup-id xrdb ~/.Xresources & # Cargar la configuracion de Urxvt Terminal
 exec --no-startup-id xset r rate 300 50 & Acelerar el cursos para escribir o desplazarte, es necesario tener instalado el paquete xset
 #exec --no-startup-id xsetroot -solid '#707070' & Colocar un color solido de fondo de escritorio, es necesario tener instalado el paquete xsetrot
-#exec --no-startup-id picom &
+exec --no-startup-id picom &

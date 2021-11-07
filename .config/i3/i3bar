@@ -1,0 +1,19 @@
+#!/bin/sh
+# i3status Configs
+# Autor:
+# Hector Ivan Vega Zamudio
+# mxhectorvega@gmail.com
+# https://github.com/mxhectorvega
+# Version:
+# v1.0: 06/11/2021 - Statusbar por defecto del empaquetado i3wm con unos pares de scripts modulares en bash como complemento.
+
+
+WIFI=$($HOME/.config/i3/scr/wifi)
+ETHERNET=$($HOME/.config/i3/scr/ethernet)
+CPU=$($HOME/.config/i3/scr/cpu)
+MEM=$($HOME/.config/i3/scr/memoria)
+BATTERY=$($HOME/.config/i3/scr/bateria)
+SOUND=$($HOME/.config/i3/scr/sonido)
+FECHA=$($HOME/.config/i3/scr/fecha)
+
+echo "$WIFI $ETHERNET $CPU $MEM $BATTERY $SOUND $FECHA"

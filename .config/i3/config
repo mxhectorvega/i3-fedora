@@ -26,15 +26,15 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # disminiur brillo
 floating_modifier $mod
 
 # Abre una terminal por defecto URXVT
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id xterm
 
 # Cierra la ventana actual
 bindsym $mod+Shift+q kill
 
 # Lanza menu por defecto Dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run -l 5 -fn "Iosevka-9" -p Dmenu:
-bindsym $mod+shift+d exec --no-startup-id menu-programas
-bindsym $mod+Ctrl+Shift+d exec --no-startup-id menu-flatpaks
+bindsym $mod+shift+d exec --no-startup-id . "$HOME"/.local/bin/menu-programas
+bindsym $mod+Ctrl+Shift+d exec --no-startup-id . "$HOME"/.local/bin/menu-flatpaks
 
 # change focus
 bindsym $mod+j focus left
@@ -42,7 +42,7 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+ntilde focus right
 
-# alternatively, you can use the cursor keys:
+# alternatively, you can use the cursor keys:S
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -152,13 +152,14 @@ mode "resize" {
 }
 
 # Colores de las ventanas
+# Colores de las ventanas
 #			background		background		text		text
 client.focused		#141414			#141414			#ffffff		#00ff00
 client.unfocused	#141414			#141414			#8f8f8f		#00ff00
 client.focused_inactive	#141414			#141414			#8f8f8f		#00ff00
 client.urgent		#141414			#141414			#ff6f00		#00ff00
 client.placeholder	#141414			#141414			#ff6f00		#00ff00
-client.background	#141414
+client.background	#141414			#141414			#ff6f00		#00ff00
 
 # Configuracion de la barra para i3wm, puede ser i3block, i3status o i3bar
 # a continuacion podra ajustar la pocicion asi como colores, fuentes de la barra
@@ -233,8 +234,10 @@ bindsym Print exec maim -m 1 "$HOME"/Imágenes/fullscreen-"$(date '+%d%m%y-%H%M%
 #exec --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id greenclip daemon & # Demonio del gestor de portapapeles para Dmenu y Rofi github.com/erebe/greenclip
-exec --no-startup-id feh --no-fehbg --bg-fill "$HOME"/Imágenes/walls/xcz4kyo191p71.jpg # Coloca una imagen de fondo de escritorio
+exec --no-startup-id feh --no-fehbg --bg-fill "$HOME"/Imágenes/walls/1399.png # Coloca una imagen de fondo de escritorio
 exec --no-startup-id xrdb ~/.Xresources & # Cargar la configuracion de Urxvt Terminal
 exec --no-startup-id xset r rate 300 50 & Acelerar el cursos para escribir o desplazarte, es necesario tener instalado el paquete xset
 #exec --no-startup-id xsetroot -solid '#707070' & Colocar un color solido de fondo de escritorio, es necesario tener instalado el paquete xsetrot
+#exec --no-startup-id picom --experimental-backends &
 exec --no-startup-id picom &
+exec --no-startup-id dunst &

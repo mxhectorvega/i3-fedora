@@ -1,3 +1,4 @@
-#!/bin/sh
-VAR="$(flatpak list | awk -F '\\t' '{print $1}' | dmenu -p Flatpaks: -l 5 -fn Iosevka-9)"
+#!/usr/bin/sh
+
+VAR="$(flatpak list | awk -F '\\t' '{print $1}' | dmenu -l 5 -fn "Iosevka-9" -p Flatpaks:)"
 flatpak run $(flatpak list | awk -F "\t" "/$VAR/{print \$2}")

@@ -12,7 +12,7 @@ then
 fi
 export PATH
 export TERMINAL="urxvt"
-#export TERMINAL="kitty"
+export TerminalEmulator="urxvt"
 export EDITOR="nano -l"
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
